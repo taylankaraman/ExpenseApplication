@@ -4,6 +4,7 @@ namespace ExpenseApplication.Models
 {
     public class Expense
     {
+        public int ExpenseId { get; set; }
         public int ReceiptNumber { get; set; }
 
         //TODO Future values should not be accepted

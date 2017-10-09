@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace ExpenseApplication.Models
@@ -14,6 +15,7 @@ namespace ExpenseApplication.Models
 
     public class ExpenseForm
     {
+        public int ExpenseFormId { get; set; }
         public ICollection<Expense> Expenses { get; set; }
         public States State { get; set; }
         private decimal _total;
@@ -27,5 +29,10 @@ namespace ExpenseApplication.Models
         }
         
         public string RejectReason { get; set; }
+
+        public ExpenseForm()
+        {
+            Expenses = new Collection<Expense>();
+        }
     }
 }
