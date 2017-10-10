@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
 import { NewExpenseComponent } from './components/newExpense/newExpense.component';
 import { EditExpenseComponent } from './components/editExpense/editExpense.component';
+import { NewExpenseFormComponent} from './components/newExpenseForm/newExpenseForm.component';
 
 import { EmployeeServices } from './services/services';
 
@@ -20,7 +21,8 @@ import { EmployeeServices } from './services/services';
         HomeComponent,
         DetailsComponent,
         NewExpenseComponent,
-        EditExpenseComponent
+        EditExpenseComponent,
+        NewExpenseFormComponent
     ],
     providers: [EmployeeServices],
     imports: [
@@ -32,6 +34,7 @@ import { EmployeeServices } from './services/services';
             { path: 'home', component: HomeComponent },
             { path: 'details/:id', component: DetailsComponent },
             { path: 'new', component: NewExpenseComponent },
+            { path: 'newform', component: NewExpenseFormComponent },
             { path: 'edit/:id', component: EditExpenseComponent },
             { path: '**', redirectTo: 'home' }
         ])

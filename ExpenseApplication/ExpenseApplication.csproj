@@ -32,6 +32,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\details\details.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\editExpense\editExpense.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\newExpenseForm\newExpenseForm.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\newExpense\newExpense.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\services.ts" />
   </ItemGroup>

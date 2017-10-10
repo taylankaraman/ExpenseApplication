@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -6,6 +7,7 @@ namespace ExpenseApplication.Models
 {
     public enum States
     {
+        NotSubmitted,
         Submitted,
         Approved,
         Rejected,
@@ -33,6 +35,14 @@ namespace ExpenseApplication.Models
         public ExpenseForm()
         {
             Expenses = new Collection<Expense>();
+        }
+
+        public void AddToExpenseForm(Expense expense)
+        {
+            if (expense == null)
+                throw new ArgumentNullException(nameof(expense));
+            else
+                Expenses.Add(expense);
         }
     }
 }

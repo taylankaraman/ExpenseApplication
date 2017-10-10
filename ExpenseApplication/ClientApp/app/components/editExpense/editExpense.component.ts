@@ -1,7 +1,7 @@
 ﻿import { Component } from '@angular/core';
 
 @Component({
-    selector: 'edit-expensee',
+    selector: 'edit-expense',
     templateUrl: './editExpense.component.html'
 })
 export class EditExpenseComponent {
