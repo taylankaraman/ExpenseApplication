@@ -7,17 +7,22 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { DetailsComponent } from './components/details/details.component';
+import { NewExpenseComponent } from './components/newExpense/newExpense.component';
+import { EditExpenseComponent } from './components/editExpense/editExpense.component';
+
+import { EmployeeServices } from './services/services';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        DetailsComponent,
+        NewExpenseComponent,
+        EditExpenseComponent
     ],
+    providers: [EmployeeServices],
     imports: [
         CommonModule,
         HttpModule,
@@ -25,8 +30,9 @@ import { CounterComponent } from './components/counter/counter.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'details/:id', component: DetailsComponent },
+            { path: 'new', component: NewExpenseComponent },
+            { path: 'edit/:id', component: EditExpenseComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
