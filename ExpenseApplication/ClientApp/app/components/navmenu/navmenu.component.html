@@ -18,8 +18,13 @@
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/new']">
+                        <span class='glyphicon glyphicon-usd'></span> New Expense
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/newform']">
-                        <span class='glyphicon glyphicon-user'></span> New Expense Form
+                        <span class='glyphicon glyphicon-list'></span> New Expense Form
                     </a>
                 </li>
             </ul>
