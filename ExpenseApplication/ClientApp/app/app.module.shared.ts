@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,7 +12,8 @@ import { NewExpenseComponent } from './components/newExpense/newExpense.componen
 import { EditExpenseComponent } from './components/editExpense/editExpense.component';
 import { NewExpenseFormComponent} from './components/newExpenseForm/newExpenseForm.component';
 
-import { EmployeeServices } from './services/services';
+import { EmployeeService } from "./services/employee-service";
+import { ExpenseService } from "./services/expense-service";
 
 @NgModule({
     declarations: [
@@ -24,11 +25,15 @@ import { EmployeeServices } from './services/services';
         EditExpenseComponent,
         NewExpenseFormComponent
     ],
-    providers: [EmployeeServices],
+    providers: [
+        EmployeeService,
+        ExpenseService
+    ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },

@@ -26,7 +26,6 @@
   <ItemGroup>
     <None Remove="ClientApp\app\components\details\details.component.ts" />
     <None Remove="ClientApp\app\components\newExpense\newExpense.component.ts" />
-    <None Remove="ClientApp\app\services\services.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +33,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\editExpense\editExpense.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\newExpenseForm\newExpenseForm.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\newExpense\newExpense.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\services.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\expense-service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

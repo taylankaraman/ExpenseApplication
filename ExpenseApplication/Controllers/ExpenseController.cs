@@ -18,26 +18,41 @@ namespace ExpenseApplication.Controllers
         {
             _context = context;
         }
+
         [HttpGet]
-        public async Task<IActionResult> EmployeeList()
+        public async Task<IActionResult> ExpenseList()
         {
-            List<Expense_Project> ilIst = new List<Expense_Project>();
-            var listData = await (from emp in _context.Employee                
+            List<ExpenseProject> ilIst = new List<ExpenseProject>();
+            var listData = await (from exp in _context.Expense                
                 select new
                 {
-                    emp.Id,
-                    emp.Name
+                    exp.ReceiptNumber,
+                    exp.ReceiptDate,
+                    exp.ItemDescription,
+                    exp.Amount,
+                    exp.ReimbursementAmount
                 }
             ).ToListAsync();
             listData.ForEach(x =>
             {
-                Expense_Project Obj = new Expense_Project();
-                Obj.EmployeeId = x.Id;
-                Obj.EmployeeName = x.Name;
+                ExpenseProject Obj = new ExpenseProject();
+                Obj.ReceiptNumber = x.ReceiptNumber;
+                Obj.ReceiptDate = x.ReceiptDate;
+                Obj.ItemDescription = x.ItemDescription;
+                Obj.Amount = x.Amount;
+                Obj.ReimbursementAmount = x.ReimbursementAmount;
                 ilIst.Add(Obj);
             });
 
             return Json(ilIst);
+        }
+
+        [HttpPost]
+        public IActionResult AddExpense([FromBody]Expense expObj)
+        {
+            _context.Expense.Add(expObj);
+            _context.SaveChanges();
+            return Json("OK");
         }
     }
 }
