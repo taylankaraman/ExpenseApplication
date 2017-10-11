@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
-import { EmployeeService } from "../../services/employee-service";
+import { ExpenseService } from "../../services/expense-service";
 
 @Component({
     selector: 'home',
     templateUrl: './home.component.html'
 })
 export class HomeComponent {
-    public employeeList = [];
-    public constructor(private empService: EmployeeService) {
-        this.empService.getEmployeeList()
+    public ExpenseList = [];
+    public constructor(private expService: ExpenseService) {
+        this.expService.getExpenseList()
             .subscribe(
-                (data: Response) => (this.employeeList = data.json())
+                (data: Response) => (this.ExpenseList = data.json())
             );
     }
 }
