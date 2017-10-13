@@ -1,0 +1,49 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <h3>Expense Form X</h3>
+        <br />
+        <br />
+        <br />
+    </div>
+
+</div>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>  </th>
+                    <th>Receipt Number</th>
+                    <th>Receipt Date</th>
+                    <th>Item Description</th>
+                    <th>Amount</th>
+                    <th>Reimbursement Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let expData of ExpenseList; let i = index; trackBy: ExpenseId">
+                    <td>{{i+1}}</td>
+                    <td>{{expData.receiptNumber}}</td>
+                    <td>{{expData.receiptDate}}</td>
+                    <td>{{expData.itemDescription}}</td>
+                    <td>{{expData.amount}}</td>
+                    <td>{{expData.reimbursementAmount}}</td>
+                    <td>
+                        <a [routerLink]="['/details/',expData.ExpenseId]"
+                           class="btn btn-primary">
+                            Detail
+                        </a>
+                        <a [routerLink]="['/edit/',expData.ExpenseId]"
+                           class="btn btn-success">
+                            Edit
+                        </a>
+                        <a class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+        </table>
+        <button type="button" class="btn btn-primary" (click)="addExpense()">Add Expense</button>
+        <button type="button" class="btn btn-primary" (click)="deleteExpenseForm()">Delete Expense Form</button>
+        <button type="button" class="btn btn-primary" (click)="submitExpenseForm()">Submit Expense Form</button>
+    </div>
+</div>

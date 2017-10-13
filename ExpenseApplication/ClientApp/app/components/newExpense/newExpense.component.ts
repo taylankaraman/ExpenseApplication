@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ExpenseService } from '../../services/expense-service';
 
@@ -13,7 +14,7 @@ export class NewExpenseComponent {
         //    .subscribe(
         //        (data: Response) => (this.ProjectList = data.json())
 
-    public constructor(private expService: ExpenseService) {
+    public constructor(private expService: ExpenseService, private router: Router) {
         this.formData = new FormGroup({
             "ReceiptNumber": new FormControl("", Validators.required),
             "ReceiptDate": new FormControl("", Validators.required),
@@ -35,7 +36,7 @@ export class NewExpenseComponent {
             };
 
             this.expService.postData(Obj).subscribe();
-            alert("Expense Inserted Successfully");
+            this.router.navigateByUrl('/home');
         }
     };
 }

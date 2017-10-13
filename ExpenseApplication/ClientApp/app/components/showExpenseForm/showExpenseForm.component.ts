@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { ExpenseService } from "../../services/expense-service";
 
 @Component({
     selector: 'home',
-    templateUrl: './home.component.html'
+    templateUrl: './showExpenseForm.component.html'
 })
-export class HomeComponent {
+export class ShowExpenseFormComponent {
     public ExpenseList = [];
     public constructor(private expService: ExpenseService, private router: Router) {
         this.expService.getExpenseList()

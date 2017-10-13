@@ -11,6 +11,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { NewExpenseComponent } from './components/newExpense/newExpense.component';
 import { EditExpenseComponent } from './components/editExpense/editExpense.component';
 import { NewExpenseFormComponent} from './components/newExpenseForm/newExpenseForm.component';
+import { ShowExpenseFormComponent } from "./components/showExpenseForm/showExpenseForm.component";
 
 import { EmployeeService } from "./services/employee-service";
 import { ExpenseService } from "./services/expense-service";
@@ -23,7 +24,8 @@ import { ExpenseService } from "./services/expense-service";
         DetailsComponent,
         NewExpenseComponent,
         EditExpenseComponent,
-        NewExpenseFormComponent
+        NewExpenseFormComponent,
+        ShowExpenseFormComponent
     ],
     providers: [
         EmployeeService,
@@ -35,8 +37,8 @@ import { ExpenseService } from "./services/expense-service";
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
+            { path: '', redirectTo: 'showExpenseForm', pathMatch: 'full' },
+            { path: 'home', component: ShowExpenseFormComponent },
             { path: 'details/:id', component: DetailsComponent },
             { path: 'new', component: NewExpenseComponent },
             { path: 'newform', component: NewExpenseFormComponent },

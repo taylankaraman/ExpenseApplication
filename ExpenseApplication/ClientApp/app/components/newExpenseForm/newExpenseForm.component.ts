@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class NewExpenseFormComponent {
     constructor(private router: Router) {  }
-    public btnClick() {
+    public addExpense() {
         this.router.navigateByUrl('/new');
     }
 }
