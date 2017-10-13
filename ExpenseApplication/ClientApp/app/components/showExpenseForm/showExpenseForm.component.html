@@ -22,7 +22,7 @@
             </thead>
             <tbody>
 
-                <tr *ngFor="let expData of ExpenseList; let i = index; trackBy: ExpenseId">
+                <tr *ngFor="let expData of ExpenseList; let i = index; trackBy: expenseId">
                     <td>{{i+1}}</td>
                     <td>{{expData.receiptNumber}}</td>
                     <td>{{expData.receiptDate}}</td>
@@ -30,15 +30,15 @@
                     <td>{{expData.amount}}</td>
                     <td>{{expData.reimbursementAmount}}</td>
                     <td>
-                        <a [routerLink]="['/details/',expData.ExpenseId]"
+                        <a [routerLink]="['/details/',expData.expenseId]"
                            class="btn btn-primary">
                             Detail
                         </a>
-                        <a [routerLink]="['/edit/',expData.ExpenseId]"
+                        <a [routerLink]="['/edit/',expData.expenseId]"
                            class="btn btn-success">
                             Edit
                         </a>
-                        <a class="btn btn-danger">Delete</a>
+                        <a class="btn btn-danger" (click)="deleteExpense(expData.expenseId)">Delete</a>
                     </td>
                 </tr>
         </table>

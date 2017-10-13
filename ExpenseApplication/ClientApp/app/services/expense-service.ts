@@ -19,4 +19,17 @@ export class ExpenseService {
         let options = new RequestOptions({ headers: headers });
         return this.http.post('http://localhost:54200/api/Expense', JSON.stringify(expObj), options);
     }
+
+    removeExpenseDetails(expenseId: any) {
+        let headers = new Headers({
+            'Content-Type':
+                'application/json; charset=utf-8'
+        });
+        return this.http.delete('http://localhost:54200/api/Expense', new RequestOptions({
+            headers: headers,
+            body: expenseId
+        }));
+
+
+    }  
 }

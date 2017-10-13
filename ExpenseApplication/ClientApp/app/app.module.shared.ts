@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
 import { NewExpenseComponent } from './components/newExpense/newExpense.component';
 import { EditExpenseComponent } from './components/editExpense/editExpense.component';
@@ -20,7 +19,6 @@ import { ExpenseService } from "./services/expense-service";
     declarations: [
         AppComponent,
         NavMenuComponent,
-        HomeComponent,
         DetailsComponent,
         NewExpenseComponent,
         EditExpenseComponent,
