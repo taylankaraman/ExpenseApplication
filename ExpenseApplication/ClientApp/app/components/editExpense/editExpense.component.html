@@ -5,6 +5,50 @@
     <title>Edit Expense</title>
 </head>
 <body>
-    <h1>Edit Employee</h1>
+<h1>Edit Expense</h1>
+
+<form class="form-horizontal" [formGroup]="formData" (ngSubmit)="submitData()">
+    
+    <div class="form-group">
+        <label for="ReceiptNumber" class="col-sm-3 control-label">Receipt Number</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="ReceiptNumber" formControlName="ReceiptNumber">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ReceiptDate" class="col-sm-3 control-label">Receipt Date</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="ReceiptDate" formControlName="ReceiptDate">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ItemDescription" class="col-sm-3 control-label">Item Description</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="ItemDescription" formControlName="ItemDescription">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Amount" class="col-sm-3 control-label">Amount</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="Amount" formControlName="Amount">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ReimbursementAmount" class="col-sm-3 control-label">Reimbursement Amount</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="ReimbursementAmount" formControlName="ReimbursementAmount">
+        </div>
+    </div>
+    <div>
+        <input type="hidden" id="ExpenseId" formControlName="ExpenseId"/>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-5">
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </div>
+</form>
+
 </body>
 </html>

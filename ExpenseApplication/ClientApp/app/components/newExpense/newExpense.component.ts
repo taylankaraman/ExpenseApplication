@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ExpenseService } from '../../services/expense-service';
 
 @Component({
@@ -9,10 +9,6 @@ import { ExpenseService } from '../../services/expense-service';
 })
 export class NewExpenseComponent {
     public formData: FormGroup;
-
-        //this.empService.getProjectList()
-        //    .subscribe(
-        //        (data: Response) => (this.ProjectList = data.json())
 
     public constructor(private expService: ExpenseService, private router: Router) {
         this.formData = new FormGroup({

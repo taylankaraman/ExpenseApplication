@@ -49,6 +49,26 @@ namespace ExpenseApplication.Controllers
             return Json(ilIst);
         }
 
+        [HttpGet("{expenseId}")]
+        public async Task<IActionResult> ExpenseDetails(int expenseId)
+        {
+
+            var ExpenseDetails = await (from exp in _context.Expense
+                where exp.ExpenseId == expenseId
+                select new
+                {
+                    exp.ExpenseId,
+                    exp.ReceiptNumber,
+                    exp.ReceiptDate,
+                    exp.ItemDescription,
+                    exp.Amount,
+                    exp.ReimbursementAmount
+                }
+            ).FirstAsync();
+
+            return Json(ExpenseDetails);
+        }
+
         [HttpPost]
         public IActionResult AddExpense([FromBody]Expense expObj)
         {
@@ -65,6 +85,14 @@ namespace ExpenseApplication.Controllers
             _context.Expense.Remove(Exp);
             _context.SaveChanges();
             return Json("OK");
+        }
+
+        [HttpPut]
+        public IActionResult EditExpense([FromBody]Expense expData)
+        {
+            _context.Entry(expData).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Json("ok");
         }
     }
 }

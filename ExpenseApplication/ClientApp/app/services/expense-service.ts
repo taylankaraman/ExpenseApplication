@@ -11,6 +11,10 @@ export class ExpenseService {
         return this.http.get('http://localhost:54200/api/Expense');
     }
 
+    getExpenseDetails(expenseId: any) {
+        return this.http.get('http://localhost:54200/api/Expense/' + expenseId);
+    }  
+
     postData(expObj: any) {
         let headers = new Headers({
             'Content-Type':
@@ -29,7 +33,14 @@ export class ExpenseService {
             headers: headers,
             body: expenseId
         }));
-
-
     }  
+
+    editExpenseData(expObj: any) {
+        let headers = new Headers({
+            'Content-Type':
+                'application/json; charset=utf-8'
+        });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.put('http://localhost:54200/api/Expense', JSON.stringify(expObj), options);
+    }
 }
